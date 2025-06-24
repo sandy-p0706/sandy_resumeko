@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandy A. Padrique - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --yellow: #FFD700;
+            --black: #000000;
+            --green: #4CAF50;
+            --dark-grey: #333333;
+            --light-grey: #F8F8F8;
+            --accent-green-light: #E8F5E9;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-grey);
+            background-color: var(--light-grey);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 1050px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .sidebar {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main-content {
+            padding: 40px;
+            flex-grow: 1;
+            background-color: var(--white);
+            box-sizing: border-box;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--green);
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .sidebar h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--yellow);
+            margin: 0 0 8px;
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .sidebar h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+            margin: 0 0 35px;
+            font-size: 1.6em;
+            font-weight: 500;
+            opacity: 0.95;
+        }
+
+        .contact-info-sidebar {
+            text-align: left;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 25px;
+        }
+
+        .contact-info-sidebar div {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-info-sidebar strong {
+            color: var(--yellow);
+            font-size: 0.95em;
+            width: 90px;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .contact-info-sidebar span, .contact-info-sidebar a {
+            color: var(--white);
+            font-size: 1em;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .contact-info-sidebar a:hover {
+            text-decoration: underline;
+            color: var(--yellow);
+        }
+
+        .main-content section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        .main-content section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--green);
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: var(--yellow);
+            border-radius: 3px;
+        }
+
+        .about-me-text {
+            font-size: 1.05em;
+            line-height: 1.7;
+            text-align: justify;
+            color: var(--dark-grey);
+            padding: 20px;
+            background-color: var(--accent-green-light);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 22px;
+            padding: 20px;
+            background-color: var(--white);
+            border-left: 5px solid var(--yellow);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .education-item:last-child, .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item h4, .experience-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0 0 8px;
+            color: var(--black);
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+
+        .education-item p, .experience-item p {
+            margin: 0;
+            color: var(--dark-grey);
+            font-size: 0.95em;
+        }
+
+        .experience-item ul {
+            list-style: disc;
+            padding-left: 25px;
+            margin-top: 10px;
+            color: var(--dark-grey);
+        }
+
+        .experience-item ul li {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            border-top: 1px solid #eee;
+            color: var(--dark-grey);
+            font-size: 0.9em;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: var(--white);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                flex-direction: row;
+            }
+            .sidebar {
+                width: 350px;
+                min-height: 100%;
+            }
+            .main-content {
+                padding: 50px;
+            }
+            .main-content section {
+                margin-bottom: 50px;
+                padding-bottom: 35px;
+            }
+            .sidebar h1 {
+                font-size: 3.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 0;
+            }
+            body {
+                padding: 0;
+            }
+            .sidebar {
+                border-radius: 0;
+            }
+            .main-content {
+                border-radius: 0;
+            }
+            footer {
+                border-radius: 0;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.7em;
+            }
+            .profile-photo {
+                width: 130px;
+                height: 130px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                padding: 30px 20px;
+            }
+            .main-content {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.1em;
+            }
+            h3 {
+                font-size: 1.5em;
+            }
+            .profile-photo {
+                width: 100px;
+                height: 100px;
+            }
+            .contact-info-sidebar strong {
+                width: 70px;
+            }
+            .contact-info-sidebar div {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <img src="https://i.imgur.com/5JgGLO4.jpeg" alt="Sandy A. Padrique Profile Photo" class="profile-photo">
+            <h1>Sandy A. Padrique</h1>
+            <h2>Student</h2>
+
+            <div class="contact-info-sidebar">
+                <div>
+                    <strong>Phone:</strong> <span><a href="tel:+63 9XX XXX XXXX">+63 9XX XXX XXXX</a></span>
+                </div>
+                <div>
+                    <strong>Email:</strong> <span><a href="mailto:padriquesandy@gmail.com">padriquesandy@gmail.com</a></span>
+                </div>
+                <div>
+                    <strong>Facebook:</strong> <span><a href="https://facebook.com/SandyPadrique" target="_blank">Sandy Padrique</a></span>
+                </div>
+                <div>
+                    <strong>Address:</strong> <span>Cainta, Rizal</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <section>
+                <h3>About Me</h3>
+                <p class="about-me-text">I am a dedicated and fast-learning individual with strong communication skills, currently pursuing a Bachelor of Science in Computer Engineering. I am flexible and detail-oriented, capable of working effectively under pressure. My passion lies in continuously acquiring new knowledge and applying it to solve real-world problems.</p>
+            </section>
+
+            <section>
+                <h3>Education</h3>
+                
+                <div class="education-item">
+                    <h4>1st Year - Bachelor of Science in Computer Engineering</h4>
+                    <p>EARIST - Manila | 2024-Present</p>
+                </div>
+                
+                <div class="education-item">
+                    <h4>Senior High School Graduate</h4>
+                    <p>Gardner College Cainta | 2022-2024</p>
+                </div>
+                
+                <div class="education-item">
+                    <h4>High School Graduate</h4>
+                    <p>Manggahan High School | 2018-2022</p>
+                </div>
+                
+                <div class="education-item">
+                    <h4>Elementary School Graduate</h4>
+                    <p>Karangalan Elementary School | 2012-2018</p>
+                </div>
+                
+            </section>
+
+            <section>
+                <h3>Experience</h3>
+                
+            </section>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Sandy A. Padrique. All rights reserved.</p>
+    </footer>
+</body>
+</html>
